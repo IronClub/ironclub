@@ -7,4 +7,9 @@ const router  = express.Router();
 //   res.redirect('/borrar');
 // });
 
+
+const sourcesRoutes = require ("../routes/sources");
+router.use("/sources", sourcesRoutes);
+
+
 module.exports = router;

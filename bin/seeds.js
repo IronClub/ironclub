@@ -9,6 +9,8 @@ const bcrypt = require("bcrypt");
 const User = require("../models/User");
 const Post = require("../models/Post");
 const Comment = require("../models/Comment");
+const Subsection = require('../models/Subsection');
+const Section = require ('../models/Section');
 
 //Vaciar las bases de datos
 User.collection.drop();
@@ -84,6 +86,21 @@ let comments = [
 
 ]
 
+let sections = [
+  {
+    title: "Front End",
+    imgPath: "/images/admin1.png"
+  },
+  {
+    title: "Back End",
+    imgPath: "/images/admin1.png"
+  },
+]
+
+
+
+
+
 
 
 User.deleteMany()
@@ -91,9 +108,15 @@ User.deleteMany()
     return User.create(users)
   })
   .then(usersCreated => {
+    return Section.deleteMany()
+    .then(()=> {
+      return Section.create(sections).catch(err => console.log(err))
+    }).then(sections => {
+    
     posts.forEach((e) => e.creatorId = usersCreated[e.creatorId]._id);
     console.log(`${usersCreated.length} users created with the following id:`);
     console.log(usersCreated.map(u => u._id));
+    
     return Post.deleteMany()
       .then(() => {
         return Post.create(posts).catch(err => console.log(err))
@@ -113,14 +136,16 @@ User.deleteMany()
           .then(commentsCreated => {
             console.log(`${commentsCreated.length} comments created with the following id:`);
             console.log(commentsCreated.map(u => u._id));
-
+            
           })
 
 
 
 
 
+
       })
+    })  
   })
   .then(() => {
     // Close properly the connection to Mongoose
