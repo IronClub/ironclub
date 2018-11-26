@@ -1,0 +1,16 @@
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
+
+
+{{#each posts}}
+<h1>{{this.title}}</h1>
+<img src={{this.picPath}} alt="">
+<p>{{this.content}}</p>
+
+
+{{/each}}
+
+{{#each comments}}
+<h1>{{this.content}}</h1>
+
+{{/each}}
