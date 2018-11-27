@@ -28,7 +28,6 @@ sourcesRoutes.get("/subsections/:id", ensureLogin.ensureLoggedIn(), (req, res, n
 })
 });
 
-//////////////////////////
 sourcesRoutes.get("/post/:id", ensureLogin.ensureLoggedIn(), (req, res, next) => {
   console.log("entra")
   Post.findById(req.params.id)
@@ -38,15 +37,6 @@ sourcesRoutes.get("/post/:id", ensureLogin.ensureLoggedIn(), (req, res, next) =>
   res.render("sourcesCode/complete-post", {post});
   })
 });
-
-
-
-
-
-
-
-
-/////////////////////////////
 
 sourcesRoutes.get('/new', ensureLogin.ensureLoggedIn(), (req, res) => {
   res.render('sourcesCode/newPost', { message: req.flash('error') });

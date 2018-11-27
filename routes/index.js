@@ -11,5 +11,8 @@ const router  = express.Router();
 const sourcesRoutes = require ("../routes/sources");
 router.use("/sources", sourcesRoutes);
 
+const ocioRoutes = require ("../routes/tiempoLibre");
+router.use("/ocio", ocioRoutes);
+
 
 module.exports = router;
