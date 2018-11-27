@@ -1,7 +1,8 @@
-<h1>TE DIGO QUE ESTO ES MENTIRA</h1>
+{{!-- <h1>TE DIGO QUE ESTO ES MENTIRA</h1> --}}
 
 {{#each posts}}
 <h1>{{this.title}}</h1>
+<p>{{this.creatorId.username}}</p>
 <img src={{this.picPath}}>
 <p>{{this.content}}</p>
 {{/each}}

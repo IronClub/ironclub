@@ -22,8 +22,10 @@ sourcesRoutes.get("/", ensureLogin.ensureLoggedIn(), (req, res, next) => {
 sourcesRoutes.get("/subsections/:id", ensureLogin.ensureLoggedIn(), (req, res, next) => {
   console.log("entra")
   Post.find({subsectionId: req.params.id})
+  .populate("creatorId", "username")
   .then(posts => {
-  res.render("partials/sourcePartials.hbs", {posts});
+    console.log(posts)
+  res.render("partials/sourcePartials", {posts});
 })
 });
 
@@ -38,14 +40,9 @@ sourcesRoutes.get("/:id", ensureLogin.ensureLoggedIn(), (req, res, next) => {
   })
 });
 
-
-
-
-
-
-
 sourcesRoutes.post('/new', [ensureLogin.ensureLoggedIn(), uploadCloud.single('img')], (req, res, next) => {
   let creatorId = req.user.id;
+
 
   const {
     title,
@@ -59,21 +56,24 @@ sourcesRoutes.post('/new', [ensureLogin.ensureLoggedIn(), uploadCloud.single('im
     creatorId,
     picPath,
   });
+  console.log(req.body.section)
 
-  newPost.save((err) => {
-    if (err) { next(null, false, { message: newPost.errors }) }
-    return next(null, newPost);
-  });
+  Subsection.findOne({title: req.body.section})
+  // .populate("creatorId", "username")
+  .then(sub =>{
+    newPost.subsectionId = sub.id;
 
-  res.redirect('../');
+    newPost.save((err) => {
+      if (err) { next(null, false, { message: newPost.errors }) }
+      return next(null, newPost);
+    });
+
+
+  })
+
+
+  res.redirect('/');
 })
-
-
-
-
-
-
-
 
 
 
