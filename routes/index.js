@@ -7,4 +7,9 @@ const router  = express.Router();
 //   res.redirect('/borrar');
 // });
 
+
+const meetupsRoutes = require('../routes/meetups');
+router.use('/meetups', meetupsRoutes);
+      
+
 module.exports = router;

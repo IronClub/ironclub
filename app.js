@@ -69,6 +69,7 @@ hbs.registerHelper('ifUndefined', (value, options) => {
 app.use((req, res, next) => {
   app.locals.title = 'Pepe';
   app.locals.user = req.user;
+  app.locals.googleAPI = process.env.MAPS_API;
   next();
 })
 

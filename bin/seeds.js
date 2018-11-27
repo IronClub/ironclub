@@ -9,11 +9,7 @@ const bcrypt = require("bcrypt");
 const User = require("../models/User");
 const Post = require("../models/Post");
 const Comment = require("../models/Comment");
-
-//Vaciar las bases de datos
-User.collection.drop();
-// Post.collection.drop();
-// Comment.collection.drop();
+const Event = require("../models/Event");
 
 const bcryptSalt = process.env.SALT;
 
@@ -85,6 +81,16 @@ let comments = [
 ]
 
 
+let meetups = [
+  { name: "Charla1", description: "Pues una charla", location: { type: "Point", coordinates: [40.4189903, -3.7059249] } },
+  { name: "Charla2", description: "Otra charla", location: { type: "Point", coordinates: [40.4045385, -3.6988189] } },
+  { name: "Charla3", description: "Otra charla más", location: { type: "Point", coordinates: [40.4043078, -3.7164926] } }
+]
+
+Event.deleteMany()
+  .then(()=> {
+    return Event.create(meetups)
+  })
 
 User.deleteMany()
   .then(() => {

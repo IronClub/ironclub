@@ -1,0 +1,30 @@
+<script>
+  window.meetups = {{{meetups}}}
+</script>
+
+
+<h1>Meetups</h1>
+
+
+{{!-- <label>Address</label>
+  <input type="hidden" name="latitude" placeholder="latitude" >
+  <input type="hidden" name="longitude" placeholder="longitude">
+  <div style="color:green" class="locationStatus"></div>
+  <input type="submit" name="">
+  
+</form> --}}
+<div id="map" style="height:400px"></div>
+
+{{#each events}}
+<p>{{this.name}}</p>
+{{/each}}
+
+{{!-- {{meetups}} --}}
+
+
+
+<script src={{this.googleAPI}}></script>
+
+<script src="/javascripts/mapEngine.js"></script>
+
+<script src="/javascripts/home.js"></script>
