@@ -15,14 +15,35 @@ const Subsection = require('../models/Subsection');
 sourcesRoutes.get("/", ensureLogin.ensureLoggedIn(), (req, res, next) => {
   Section.find({})
   .then(sections => {
-
     res.render("sourcesCode/code-dashboard", {sections});
   })
 });
 
-sourcesRoutes.get("/sources", (req, res, next) => {
-  res.render("sourcesCode/front-back-section");
+sourcesRoutes.get("/subsections/:id", (req, res, next) => {
+  console.log("entra")
+  Post.find({subsectionId: req.params.id})
+  .then(posts => {
+  res.render("partials/sourcePartials.hbs", {posts});
+})
 });
+
+
+
+
+sourcesRoutes.get("/:id", (req, res, next) => {
+  Subsection.find({sectionId: req.params.id})
+  .then(subsections => {
+  res.render("sourcesCode/front-back-section", {subsections});
+})
+});
+
+
+
+
+
+
+
+
 
 
 module.exports = sourcesRoutes;

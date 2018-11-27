@@ -47,25 +47,30 @@ let users = [
     email: "front@hater.com",
     imgPath: "/images/fronthaterprofile.png"
   },
-]
-
-
+  {
+    username: "Platanito",
+    password: bcrypt.hashSync("platano", bcrypt.genSaltSync(bcryptSalt)),
+    email: "banana@lover.com",
+    imgPath: "/images/user2.png"
+  },
+];
 
 let posts = [
   {
     title: "Curso rutas express",
     content: "lorem ipsum",
     creatorId: 0,
+    subsectionId: 4,
     section: "Express"
   },
   {
     title: "Atajos para el DOM",
     content: "ipsum lorem",
     creatorId: 1,
+    subsectionId: 0,
     section: "JavaScript"
   },
-
-]
+];
 
 let comments = [
   {
@@ -83,25 +88,56 @@ let comments = [
     creatorId: 0,
     postId: 1
   },
-
-]
+];
 
 let sections = [
   {
     title: "Front End",
-    imgPath: "/images/admin1.png"
+    imgPath: "/images/logoprov.png"
   },
   {
     title: "Back End",
-    imgPath: "/images/admin1.png"
+    imgPath: "/images/logoprov.png"
   },
-]
+];
 
-
-
-
-
-
+let subsections = [
+  {
+    title: "JavaScript",
+    imgPath: "/images/subsections/js.png",
+    sectionId: 0
+  },
+  {
+    title: "CSS",
+    imgPath: "/images/admin1.png",
+    sectionId: 0,
+  },
+  {
+    title: "HTML5",
+    imgPath: "/images/subsections/html5.png",
+    sectionId: 0,
+  },
+  {
+    title: "Node",
+    imgPath: "/images/admin1.png",
+    sectionId: 1,
+  },
+  {
+    title: "Express",
+    imgPath: "/images/admin1.png",
+    sectionId: 1,
+  },
+  {
+    title: "MongoDB",
+    imgPath: "/images/admin1.png",
+    sectionId: 1,
+  },
+  {
+    title: "Middlewares",
+    imgPath: "/images/admin1.png",
+    sectionId: 1,
+  },
+];
 
 User.deleteMany()
   .then(() => {
@@ -112,8 +148,22 @@ User.deleteMany()
     .then(()=> {
       return Section.create(sections).catch(err => console.log(err))
     }).then(sections => {
+
+      subsections.forEach((e) => e.sectionId = sections[e.sectionId]._id);
+      console.log(`${sections.length} subsections created with the following id:`);
+      console.log(sections.map(u => u._id));
+      
+      return Subsection.deleteMany()
+      .then(()=> {
+        return Subsection.create(subsections).catch(err => console.log(err))
+      }).then(subsections => {
+
+      
+      
     
-    posts.forEach((e) => e.creatorId = usersCreated[e.creatorId]._id);
+    posts.forEach((e) => {e.creatorId = usersCreated[e.creatorId]._id
+      e.subsectionId = subsections[e.subsectionId]._id
+    });
     console.log(`${usersCreated.length} users created with the following id:`);
     console.log(usersCreated.map(u => u._id));
     
@@ -136,7 +186,6 @@ User.deleteMany()
           .then(commentsCreated => {
             console.log(`${commentsCreated.length} comments created with the following id:`);
             console.log(commentsCreated.map(u => u._id));
-            
           })
 
 
@@ -144,6 +193,7 @@ User.deleteMany()
 
 
 
+        
       })
     })  
   })
@@ -155,4 +205,4 @@ User.deleteMany()
     mongoose.disconnect()
     throw err
   })
-
+  })

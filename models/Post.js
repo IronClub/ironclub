@@ -4,8 +4,9 @@ const Schema = mongoose.Schema;
 const PostSchema = Schema({
   title: String,
   creatorId: { type: Schema.Types.ObjectId, ref: "User" },
+  subsectionId: { type: Schema.Types.ObjectId, ref: "Subsection"},
   content: String,
-  picPath: {type: String, default:"/images/ironHackLogo.jpg"},
+  picPath: {type: String, default:"/Users/yaredmyers/Documents/IronHack/lab/ironclub/public/images/admin1.png"},
   section: { type: String, enum: ['JavaScript', 'CSS', 'HTML', 'Node', 'Middlewares', 'Express', 'MongoDB'] }
 }, {
     timestamps: {
