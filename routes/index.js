@@ -10,6 +10,9 @@ const router  = express.Router();
 
 const meetupsRoutes = require('../routes/meetups');
 router.use('/meetups', meetupsRoutes);
+
+const meetupsAPIRoutes = require('../public/javascripts/meetupsAPI');
+router.use('/meetupAPI', meetupsAPIRoutes);
       
 
 module.exports = router;

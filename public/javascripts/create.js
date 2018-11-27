@@ -9,8 +9,6 @@ const loadData = (map) => {
       lat:e.latLng.lat(),
       lng:e.latLng.lng()
     }
-    console.log(location);
-
     document.querySelector('input[name=latitude]').value = location.lat;
     document.querySelector('input[name=longitude]').value = location.lng;
 

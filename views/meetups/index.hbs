@@ -13,18 +13,46 @@
   <input type="submit" name="">
   
 </form> --}}
-<div id="map" style="height:400px"></div>
 
-{{#each events}}
-<p>{{this.name}}</p>
-{{/each}}
+<nav class="panel" id="meetups-panel">
+  <p class="panel-heading">
+    repositories
+  </p>
+  <div class="panel-block">
+    <p class="control has-icons-left">
+      <input id="meetup-name" class="input is-small" type="text" placeholder="search">
+      <span class="icon is-small is-left">
+        <i class="fas fa-search" aria-hidden="true"></i>
+      </span>
+    </p>
+  </div>
+  <p class="panel-tabs">
+    <a class="is-active filter-options">all</a>
+    <a class="filter-options">Charla</a>
+    <a class="filter-options">Quedada</a>
+  </p>
+  {{#each events}}
+  {{> eventListPartial this}}
+  {{/each}}
+  <label class="panel-block">
+    <input type="checkbox">
+    remember me
+  </label>
+  <div class="panel-block">
+    <button id="btn-meetup-search" class="button is-link is-outlined is-fullwidth">
+      Apply
+    </button>
+  </div>
+</nav>
+<div id="map" class="indexMap"></div>
 
-{{!-- {{meetups}} --}}
 
 
 
 <script src={{this.googleAPI}}></script>
-
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="/javascripts/mapEngine.js"></script>
 
 <script src="/javascripts/home.js"></script>
+<script type="text/javascript" src="/javascripts/meetupAPIHandler.js"></script>
+<script src="/javascripts/meetupListeners.js"></script>

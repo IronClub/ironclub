@@ -84,7 +84,8 @@ let comments = [
 let meetups = [
   { name: "Charla1", description: "Pues una charla", location: { type: "Point", coordinates: [40.4189903, -3.7059249] } },
   { name: "Charla2", description: "Otra charla", location: { type: "Point", coordinates: [40.4045385, -3.6988189] } },
-  { name: "Charla3", description: "Otra charla más", location: { type: "Point", coordinates: [40.4043078, -3.7164926] } }
+  { name: "Charla3", description: "Otra charla más", location: { type: "Point", coordinates: [40.4043078, -3.7164926] } },
+  { name: "Quedada1", description: "amo a juntarno", location: { type: "Point", coordinates: [40.4143078, -3.7264926] } }
 ]
 
 Event.deleteMany()
