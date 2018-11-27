@@ -70,6 +70,13 @@ let posts = [
     subsectionId: 0,
     section: "JavaScript"
   },
+  {
+    title: "Compass Themes",
+    content: "ipsum lorem",
+    creatorId: 3,
+    subsectionId: 5,
+    section: "MongoDB"
+  },
 ];
 
 let comments = [
@@ -186,14 +193,7 @@ User.deleteMany()
           .then(commentsCreated => {
             console.log(`${commentsCreated.length} comments created with the following id:`);
             console.log(commentsCreated.map(u => u._id));
-          })
-
-
-
-
-
-
-        
+          })        
       })
     })  
   })

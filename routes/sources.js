@@ -19,7 +19,7 @@ sourcesRoutes.get("/", ensureLogin.ensureLoggedIn(), (req, res, next) => {
   })
 });
 
-sourcesRoutes.get("/subsections/:id", (req, res, next) => {
+sourcesRoutes.get("/subsections/:id", ensureLogin.ensureLoggedIn(), (req, res, next) => {
   console.log("entra")
   Post.find({subsectionId: req.params.id})
   .then(posts => {
@@ -27,15 +27,46 @@ sourcesRoutes.get("/subsections/:id", (req, res, next) => {
 })
 });
 
+sourcesRoutes.get('/new', ensureLogin.ensureLoggedIn(), (req, res) => {
+  res.render('sourcesCode/newPost', { message: req.flash('error') });
+});
 
-
-
-sourcesRoutes.get("/:id", (req, res, next) => {
+sourcesRoutes.get("/:id", ensureLogin.ensureLoggedIn(), (req, res, next) => {
   Subsection.find({sectionId: req.params.id})
   .then(subsections => {
-  res.render("sourcesCode/front-back-section", {subsections});
-})
+    res.render("sourcesCode/front-back-section", {subsections});
+  })
 });
+
+
+
+
+
+
+
+sourcesRoutes.post('/new', [ensureLogin.ensureLoggedIn(), uploadCloud.single('img')], (req, res, next) => {
+  let creatorId = req.user.id;
+
+  const {
+    title,
+    content,
+  } = req.body;
+
+  let picPath = req.file.url;
+  const newPost = new Post({
+    title,
+    content,
+    creatorId,
+    picPath,
+  });
+
+  newPost.save((err) => {
+    if (err) { next(null, false, { message: newPost.errors }) }
+    return next(null, newPost);
+  });
+
+  res.redirect('../');
+})
 
 
 
