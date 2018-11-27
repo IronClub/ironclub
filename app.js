@@ -37,7 +37,8 @@ app.use(cookieParser());
 app.use(session({
   secret: "our-passport-local-strategy-app",
   resave: true,
-  saveUninitialized: true
+  saveUninitialized: true,
+  store: new MongoStore( { mongooseConnection: mongoose.connection })
 }));
 // Express View engine setup
 
@@ -74,12 +75,12 @@ app.use((req, res, next) => {
 })
 
 // Enable authentication using session + passport
-app.use(session({
-  secret: 'irongenerator',
-  resave: true,
-  saveUninitialized: true,
-  store: new MongoStore( { mongooseConnection: mongoose.connection })
-}))
+// app.use(session({
+//   secret: 'irongenerator',
+//   resave: true,
+//   saveUninitialized: true,
+//   store: new MongoStore( { mongooseConnection: mongoose.connection })
+// }))
 app.use(flash());
 require('./passport')(app);
     

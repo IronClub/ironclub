@@ -20,7 +20,6 @@ sourcesRoutes.get("/", ensureLogin.ensureLoggedIn(), (req, res, next) => {
 });
 
 sourcesRoutes.get("/subsections/:id", ensureLogin.ensureLoggedIn(), (req, res, next) => {
-  console.log("entra")
   Post.find({subsectionId: req.params.id})
   .populate("creatorId", "username")
   .then(posts => {
@@ -28,6 +27,26 @@ sourcesRoutes.get("/subsections/:id", ensureLogin.ensureLoggedIn(), (req, res, n
   res.render("partials/sourcePartials", {posts});
 })
 });
+
+//////////////////////////
+sourcesRoutes.get("/post/:id", ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  console.log("entra")
+  Post.findById(req.params.id)
+  .populate("creatorId", "username")
+  .then(post => {
+    console.log(post)
+  res.render("sourcesCode/complete-post", {post});
+  })
+});
+
+
+
+
+
+
+
+
+/////////////////////////////
 
 sourcesRoutes.get('/new', ensureLogin.ensureLoggedIn(), (req, res) => {
   res.render('sourcesCode/newPost', { message: req.flash('error') });
@@ -74,7 +93,7 @@ sourcesRoutes.post('/new', [ensureLogin.ensureLoggedIn(), uploadCloud.single('im
 
   res.redirect('/');
 })
-
+  
 
 
 module.exports = sourcesRoutes;
