@@ -14,11 +14,11 @@ router.use("/sources", sourcesRoutes);
 const ocioRoutes = require ("../routes/tiempoLibre");
 router.use("/ocio", ocioRoutes);
 
-const booksAndReposRoutes = require ("../routes/booksAndRepos");
-router.use("/books", booksAndReposRoutes);
+const booksRoutes = require ("../routes/books");
+router.use("/books", booksRoutes);
 
-// const booksAndReposRoutes = require ("../routes/booksAndRepos");
-// router.use("/books", booksAndReposRoutes);
+const reposRoutes = require ("../routes/repos");
+router.use("/repos", reposRoutes);
 
 
 
