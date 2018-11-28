@@ -1,4 +1,5 @@
-body {
-  background-image: url("/Users/yaredmyers/Documents/IronHack/lab/ironclub/public/images/bg/loginbg.png");
-  
+.loginBg {
+  background-image: url(/Users/yaredmyers/Documents/IronHack/lab/ironclub/public/images/bg/loginbg.png);
+  width: 100vh;
+  height: 100vh;
 }
