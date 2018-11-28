@@ -45,4 +45,8 @@ hr {
   margin-left: 40px;
 }
 
+.loginBg {
+  background-image: url(/images/bg/loginbg.png)
+}
+
 /*# sourceMappingURL=style.css.map */
