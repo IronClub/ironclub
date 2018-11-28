@@ -14,5 +14,12 @@ router.use("/sources", sourcesRoutes);
 const ocioRoutes = require ("../routes/tiempoLibre");
 router.use("/ocio", ocioRoutes);
 
+const booksAndReposRoutes = require ("../routes/booksAndRepos");
+router.use("/books", booksAndReposRoutes);
+
+// const booksAndReposRoutes = require ("../routes/booksAndRepos");
+// router.use("/books", booksAndReposRoutes);
+
+
 
 module.exports = router;

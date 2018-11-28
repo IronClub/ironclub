@@ -5,4 +5,44 @@ body {
 a {
   color: #00B7FF; }
 
+hr { 
+    height: 1px;
+    color: black;
+    background-color: black;
+    border: none;
+  }
+
+.booksSpace {
+  display: flex;
+  justify-content: space-around;
+}
+
+.booksCol {
+  max-width: 20%;
+  text-align: center;
+  margin: 20px;
+  border: 1px solid black;
+}
+
+.cssP {
+  margin: 10px;
+}
+
+.btnBooks {
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 5px 20px;
+  background: lightskyblue;
+}
+
+.booksLink {
+  color: black;
+}
+
+.booksHr {
+  border: 1px solid lightgrey;
+  max-width: 70%;
+  margin-left: 40px;
+}
+
 /*# sourceMappingURL=style.css.map */
