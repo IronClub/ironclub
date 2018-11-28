@@ -76,14 +76,25 @@ sourcesRoutes.post('/new', [ensureLogin.ensureLoggedIn(), uploadCloud.single('im
       if (err) { next(null, false, { message: newPost.errors }) }
       return next(null, newPost);
     });
-
-
   })
-
-
-  res.redirect('/');
 })
-  
+
+    sourcesRoutes.get('/search/:title', ensureLogin.ensureLoggedIn(), (req, res) => {
+      const title = decodeURI(req.params.title)
+      Section.findOne({title})
+      .then(sec =>{
+        res.redirect(`/sources/${sec._id}`)
+      })
+    });
+
+    sourcesRoutes.get('/subsections/search/:title', ensureLogin.ensureLoggedIn(), (req, res) => {
+      const title = decodeURI(req.params.title)
+      Subsection.findOne({title})
+      .then(sub =>{
+        res.redirect(`/sources/subsections/${sub._id}`)
+      })
+    });
+ 
 
 
 module.exports = sourcesRoutes;

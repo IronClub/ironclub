@@ -4,20 +4,23 @@ const express = require("express");
 const passport = require('passport');
 const ocioRoutes = express.Router();
 const User = require("../models/User");
-const Post = require("../models/Post");
 const Comment = require("../models/Comment");
 const ensureLogin = require("connect-ensure-login");
 const uploadCloud = require('../config/cloudinary.js');
-const Section = require('../models/Section');
-const Subsection = require('../models/Subsection');
+const OcioPost = require('../models/OcioPost')
 
 ocioRoutes.get("/", ensureLogin.ensureLoggedIn(), (req, res, next) => {
-  // Section.find({})
-  // .then(sections => {
     res.render("tiempoLibre/ocio-dashboard");
-    // {sections}
-  })
-// });
+})
+
+ocioRoutes.get("/videogames", ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  res.render("tiempoLibre/games");
+})
+
+ocioRoutes.get("/forum", ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  res.render("tiempoLibre/forum");
+})
+
 
 
 
