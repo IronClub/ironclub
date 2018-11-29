@@ -183,14 +183,24 @@ hr {
 .forumSec {
   max-width: 25%; }
 
-.posWel {
+.postWelFlex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 70px; }
+
+.postWel {
   border: 1px solid black;
   border-radius: 10px;
-  background-color: white;
+  background-color: black;
   padding: 30px;
   text-align: center;
   opacity: 50%;
-  opacity: 0.5; }
+  opacity: 0.5;
+  color: white;
+  width: 70%;
+  padding: 70px;
+  font-size: 18px; }
 
 /*# sourceMappingURL=style.css.map */
 #meetups-panel {
