@@ -57,8 +57,8 @@ let users = [
 
 let posts = [
   {
-    title: "Curso rutas express",
-    content: "lorem ipsum",
+    title: "Curso inicio express",
+    content: "Este curso es una iniciación a Express.js para todos aquellos que quieran empezar a trabajar con esta herramienta. www.codeacademy.com",
     creatorId: 0,
     subsectionId: 4,
     section: "Express"
