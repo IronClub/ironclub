@@ -15,7 +15,7 @@ const Subsection = require('../models/Subsection');
 sourcesRoutes.get("/", ensureLogin.ensureLoggedIn(), (req, res, next) => {
   Section.find({})
   .then(sections => {
-    res.render("sourcesCode/code-dashboard", {sections});
+    res.render("sourcesCode/code-dashboard", {sections, user: req.user});
   })
 });
 
@@ -24,7 +24,7 @@ sourcesRoutes.get("/subsections/:id", ensureLogin.ensureLoggedIn(), (req, res, n
   .populate("creatorId", "username")
   .then(posts => {
     console.log(posts)
-  res.render("partials/sourcePartials", {posts});
+  res.render("partials/sourcePartials", {posts, user: req.user});
 })
 });
 
@@ -34,7 +34,7 @@ sourcesRoutes.get("/post/:id", ensureLogin.ensureLoggedIn(), (req, res, next) =>
   .populate("creatorId", "username")
   .then(post => {
     console.log(post)
-  res.render("sourcesCode/complete-post", {post});
+  res.render("sourcesCode/complete-post", {post, user: req.user});
   })
 });
 
@@ -45,7 +45,7 @@ sourcesRoutes.get('/new', ensureLogin.ensureLoggedIn(), (req, res) => {
 sourcesRoutes.get("/:id", ensureLogin.ensureLoggedIn(), (req, res, next) => {
   Subsection.find({sectionId: req.params.id})
   .then(subsections => {
-    res.render("sourcesCode/front-back-section", {subsections});
+    res.render("sourcesCode/front-back-section", {subsections, user: req.user});
   })
 });
 
