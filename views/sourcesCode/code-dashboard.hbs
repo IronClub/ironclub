@@ -1,0 +1,8 @@
+<h1>ES TODO MENTIRA</h1>
+
+{{#each sections}}
+<h1>{{this.title}}</h1>
+<a href="/sources/{{this.id}}"><img src={{this.imgPath}} alt=""></a>
+{{/each}}
+
+<button onclick="window.location.href='/sources/new'">Add a post</button>

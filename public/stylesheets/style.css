@@ -1,9 +1,66 @@
 body {
-  padding: 50px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00B7FF; }
+  color: #00b7ff; }
+
+hr {
+  height: 1px;
+  color: black;
+  background-color: black;
+  border: none; }
+
+.booksSpace {
+  display: flex;
+  justify-content: space-around; }
+
+.booksCol {
+  max-width: 20%;
+  text-align: center;
+  margin: 20px;
+  border: 1px solid black; }
+
+.cssP {
+  margin: 10px; }
+
+.btnBooks {
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 5px 20px;
+  background: lightskyblue; }
+
+.booksLink {
+  color: black; }
+
+.booksHr {
+  border: 1px solid lightgrey;
+  max-width: 70%;
+  margin-left: 40px; }
+
+.loginBg {
+  background-image: url("../images/bg/loginbg.png");
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+.repoBg {
+  background-image: url(/Users/yaredmyers/Documents/IronHack/lab/ironclub/public/images/bg/pruebabg1.png); }
+
+.ocioSec {
+  display: flex;
+  justify-content: space-around;
+  background-image: url("../images/bg/newpostbg2.png"); }
+
+.gamesSec {
+  max-width: 40%; }
+
+.forumSec {
+  max-width: 40%;
+  margin-top: 50px; }
+
+/*# sourceMappingURL=style.css.map */
 
 #meetups-panel {
   width: 20%;

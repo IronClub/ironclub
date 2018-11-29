@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    {{ message }}
+    <div class="col-sm-6 centered-form">
+      <form action="/sources/new" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+          <label for="title">title</label>
+          <input type="text" name="title" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="content">content</label>
+          <textarea rows="4" cols="50" name="content" class="form-control" style="width: 150px"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="image">picPath</label>
+          <input type="file" name="img" class="form-control">
+        </div>
+        <div>
+          <select name="section">
+            <option selected>Choose a section</option>
+            <optgroup label="Front End">
+            <option>JavaScript</option>
+            <option>CSS</option>
+            <option>HTML5</option>
+            </optgroup>
+            <optgroup label="Back End">
+            <option>Node</option>
+            <option>Express</option>
+            <option>MongoDB</option>
+            <option>Middlewares</option>
+            </optgroup>
+          </select>
+        </div>
+        <button type="submit" value="Save">Create post</button>
+      </form>
+    </div>
+  </div>
+</div>

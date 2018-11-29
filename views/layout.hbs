@@ -7,13 +7,26 @@
   <title>{{title}}</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+
+
+
 </head>
 <body>
 
   <nav class="navbar is-info" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="https://bulma.io">
-      <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+    <a class="navbar-item" href="/">
+      <img src="/images/navlog2.jpg" width="28" height="28">
+      IRON CLUB
     </a>
     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
@@ -23,45 +36,54 @@
   </div>
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item">
+      {{!-- <a class="navbar-item" href="/">
         Home
-      </a>
+      </a> --}}
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          <h1>Sources</h1>
+        <a class="navbar-link" href="/sources">
+          Sources
         </a>
         <div class="navbar-dropdown">
-          <a class="navbar-item">
+          <a href="/sources/search/Front%20End"class="navbar-item">
             Frontend
           </a>
           <hr class="navbar-divider">
-          <a class="navbar-item">
+          <a href="/sources/subsections/search/JavaScript" class="navbar-item">
             JS
           </a>
-          <a class="navbar-item">
+          <a href="/sources/subsections/search/HTML5" class="navbar-item">
             HTML
           </a>
-          <a class="navbar-item">
+          <a href="/sources/subsections/search/CSS" class="navbar-item">
             CSS
           </a>
           <hr class="navbar-divider">
-          <a class="navbar-item">
+          <a href="/sources/search/Back%20End" class="navbar-item">
             Backend
           </a>
           <hr class="navbar-divider">
-          <a class="navbar-item">
+          <a href="/sources/subsections/search/Middlewares" class="navbar-item">
             Middlewares
-          </a>          
+          </a>        
         </div>
       </div>
       <a class="navbar-item">
         Meetups
       </a>
+      <a class="navbar-item" href="/books">
+        Books
+      </a>
+      <a class="navbar-item" href="/repos">
+        Repos
+      </a>
+      <a class="navbar-item" href="/ocio">
+        Off Topic
+      </a>
     </div>
     <div class="navbar-end">
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
-          <img src={{user.imgPath}}> {{user.username}}
+          <img class="navImg" src={{user.imgPath}}> {{user.username}}
         </a>
         <div class="navbar-dropdown">
           <a class="navbar-item">
@@ -75,7 +97,7 @@
       </div>
       <div class="navbar-item">
         <div class="buttons">
-          <a href="/logout" class="button is-light">
+          <a href="/logout" class="button is-dark">
             Log out
           </a>
         </div>
@@ -85,6 +107,8 @@
 </nav>
 
   {{{body}}}
+
+  
 
   <script src="/javascripts/script.js"></script>
 </body>

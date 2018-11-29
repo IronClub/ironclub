@@ -9,6 +9,13 @@ const bcrypt = require("bcrypt");
 const User = require("../models/User");
 const Post = require("../models/Post");
 const Comment = require("../models/Comment");
+const Subsection = require('../models/Subsection');
+const Section = require ('../models/Section');
+
+//Vaciar las bases de datos
+User.collection.drop();
+// Post.collection.drop();
+// Comment.collection.drop();
 const Event = require("../models/Event");
 
 const bcryptSalt = process.env.SALT;
@@ -41,25 +48,37 @@ let users = [
     email: "front@hater.com",
     imgPath: "/images/fronthaterprofile.png"
   },
-]
-
-
+  {
+    username: "Platanito",
+    password: bcrypt.hashSync("platano", bcrypt.genSaltSync(bcryptSalt)),
+    email: "banana@lover.com",
+    imgPath: "/images/user2.png"
+  },
+];
 
 let posts = [
   {
-    title: "Curso rutas express",
-    content: "lorem ipsum",
+    title: "Curso inicio express",
+    content: "Este curso es una iniciación a Express.js para todos aquellos que quieran empezar a trabajar con esta herramienta. www.codeacademy.com",
     creatorId: 0,
+    subsectionId: 4,
     section: "Express"
   },
   {
     title: "Atajos para el DOM",
     content: "ipsum lorem",
     creatorId: 1,
+    subsectionId: 0,
     section: "JavaScript"
   },
-
-]
+  {
+    title: "Compass Themes",
+    content: "ipsum lorem",
+    creatorId: 3,
+    subsectionId: 5,
+    section: "MongoDB"
+  },
+];
 
 let comments = [
   {
@@ -77,10 +96,56 @@ let comments = [
     creatorId: 0,
     postId: 1
   },
+];
 
-]
+let sections = [
+  {
+    title: "Front End",
+    imgPath: "/images/logoprov.png"
+  },
+  {
+    title: "Back End",
+    imgPath: "/images/logoprov.png"
+  },
+];
 
-
+let subsections = [
+  {
+    title: "JavaScript",
+    imgPath: "/images/subsections/js.png",
+    sectionId: 0
+  },
+  {
+    title: "CSS",
+    imgPath: "/images/admin1.png",
+    sectionId: 0,
+  },
+  {
+    title: "HTML5",
+    imgPath: "/images/subsections/html5.png",
+    sectionId: 0,
+  },
+  {
+    title: "Node",
+    imgPath: "/images/admin1.png",
+    sectionId: 1,
+  },
+  {
+    title: "Express",
+    imgPath: "/images/admin1.png",
+    sectionId: 1,
+  },
+  {
+    title: "MongoDB",
+    imgPath: "/images/admin1.png",
+    sectionId: 1,
+  },
+  {
+    title: "Middlewares",
+    imgPath: "/images/admin1.png",
+    sectionId: 1,
+  },
+];
 let meetups = [
   { name: "aCharla1", description: "Pues una charla", location: { type: "Point", coordinates: [40.4189903, -3.7059249] },type:"Charla" },
   { name: "Charla2", description: "Otra charla", location: { type: "Point", coordinates: [40.4045385, -3.6988189] },type:"Charla" },
@@ -98,9 +163,29 @@ User.deleteMany()
     return User.create(users)
   })
   .then(usersCreated => {
-    posts.forEach((e) => e.creatorId = usersCreated[e.creatorId]._id);
+    return Section.deleteMany()
+    .then(()=> {
+      return Section.create(sections).catch(err => console.log(err))
+    }).then(sections => {
+
+      subsections.forEach((e) => e.sectionId = sections[e.sectionId]._id);
+      console.log(`${sections.length} subsections created with the following id:`);
+      console.log(sections.map(u => u._id));
+      
+      return Subsection.deleteMany()
+      .then(()=> {
+        return Subsection.create(subsections).catch(err => console.log(err))
+      }).then(subsections => {
+
+      
+      
+    
+    posts.forEach((e) => {e.creatorId = usersCreated[e.creatorId]._id
+      e.subsectionId = subsections[e.subsectionId]._id
+    });
     console.log(`${usersCreated.length} users created with the following id:`);
     console.log(usersCreated.map(u => u._id));
+    
     return Post.deleteMany()
       .then(() => {
         return Post.create(posts).catch(err => console.log(err))
@@ -120,14 +205,9 @@ User.deleteMany()
           .then(commentsCreated => {
             console.log(`${commentsCreated.length} comments created with the following id:`);
             console.log(commentsCreated.map(u => u._id));
-
-          })
-
-
-
-
-
+          })        
       })
+    })  
   })
   .then(() => {
     // Close properly the connection to Mongoose
@@ -137,4 +217,4 @@ User.deleteMany()
     mongoose.disconnect()
     throw err
   })
-
+  })
