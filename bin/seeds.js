@@ -72,8 +72,8 @@ let posts = [
     section: "JavaScript"
   },
   {
-    title: "Compass Themes",
-    content: "ipsum lorem",
+    title: "Setting up MongoDB Compass",
+    content: "Sabemos que hay mucha gente con problemas a la hora de instalar MongoDB Compass por lo que traemos esta guía que será de bastante ayuda para todos, podeis verla aquí https://coursework.vschool.io/setting-up-mongodb-compass/",
     creatorId: 3,
     subsectionId: 5,
     section: "MongoDB"

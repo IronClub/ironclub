@@ -18,6 +18,9 @@ hr {
 .navImg {
   margin: 10px; }
 
+.h1Class {
+  margin: 0; }
+
 .navLogo {
   margin-right: 10px; }
 
@@ -113,7 +116,28 @@ hr {
   height: 100vh; }
 
 .sectionsBg {
-  background-image: url("../images/bg/pruebabg4.png");
+  background-image: url("../images/bg/pruebabg5.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 120vh; }
+
+.prevPostBg {
+  background-image: url("../images/bg/pruebabg5.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh; }
+
+.completePostBg {
+  background-image: url("../images/bg/pruebabg5.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh; }
+
+.mainBg {
+  background-image: url("../images/bg/pruebabg2.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -158,6 +182,15 @@ hr {
 
 .forumSec {
   max-width: 25%; }
+
+.posWel {
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: white;
+  padding: 30px;
+  text-align: center;
+  opacity: 50%;
+  opacity: 0.5; }
 
 /*# sourceMappingURL=style.css.map */
 #meetups-panel {

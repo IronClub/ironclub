@@ -39,7 +39,7 @@ sourcesRoutes.get("/post/:id", ensureLogin.ensureLoggedIn(), (req, res, next) =>
 });
 
 sourcesRoutes.get('/new', ensureLogin.ensureLoggedIn(), (req, res) => {
-  res.render('sourcesCode/newPost', { message: req.flash('error') });
+  res.render('sourcesCode/newPost', { message: req.flash('error'), user: req.user });
 });
 
 sourcesRoutes.get("/:id", ensureLogin.ensureLoggedIn(), (req, res, next) => {

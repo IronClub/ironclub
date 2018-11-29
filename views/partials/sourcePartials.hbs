@@ -1,11 +1,15 @@
+<div class="prevPostBg">
+  <div>
+    {{#each posts}}
+    <h1 class="h1Class">{{this.title}}</h1>
+    <p>{{this.creatorId.username}}</p>
+    <img src={{this.picPath}}> {{!--
+    <p>{{this.content}}</p> --}}
+    <p>
+      <a href="/sources/post/{{this.id}}">View more</a>
+    </p>
+    {{/each}}
+  </div>
 
 
-{{#each posts}}
-<h1>{{this.title}}</h1>
-<p>{{this.creatorId.username}}</p>
-<img src={{this.picPath}}>
-{{!-- <p>{{this.content}}</p> --}}
-<p><a href="/sources/post/{{this.id}}">View more</a></p>
-{{/each}}
-
-
+</div>
