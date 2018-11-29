@@ -26,5 +26,11 @@ class meetupAPIHandler {
     .then (data=>data.data)
     .catch(err=>console.log(err));
   }
+
+  addEvent(name,description,latitude,longitude){
+    return axios.post(this.BASE_URL+"/",{name,description,latitude,longitude})
+    .then (data=>data.data)
+    .catch(err=>console.log(err));;
+  }
 }
 

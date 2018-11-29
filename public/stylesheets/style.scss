@@ -80,7 +80,7 @@ hr {
 
 #meetups-panel{
   width: 20%;
-  height: 100%;
+  height: 100vh;
   position: absolute;
   top:0;
   left:0;
@@ -98,5 +98,9 @@ hr {
 }
 
 #add-container{
+  display:none;
+}
+
+#showEvent-container{
   display:none;
 }

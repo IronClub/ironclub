@@ -29,13 +29,14 @@ meetupsAPIRouter.get("/search", (req, res, next) => {
     .catch(err => console.log(err));
 });
 
-// meetupsAPIRouter.post ("")
-// router.post('/create', (req, res, next) => {
-//   const {name, description, latitude, longitude } = req.body;
-//   Restaurant.add(name, description, latitude, longitude).then(() => {
-//     res.redirect('/')
-//   })
-// });
+meetupsAPIRouter.post("/", (req, res, next) => {
+  let { name, description, latitude, longitude } = req.body;
+  Event.add(name, description, latitude, longitude)
+    .then((data) => {
+      res.json('data')
+    })
+    .catch(err => console.log(err));
+});
 
 
 
