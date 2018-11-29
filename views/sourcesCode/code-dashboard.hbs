@@ -1,8 +1,15 @@
-<h1>ES TODO MENTIRA</h1>
-
+<div class="sectionsBg">
+<div class="sourceFlex">
+<div class="sourceDashUnit">
 {{#each sections}}
-<h1>{{this.title}}</h1>
+{{!-- <h1>{{this.title}}</h1> --}}
 <a href="/sources/{{this.id}}"><img src={{this.imgPath}} alt=""></a>
 {{/each}}
 
-<button onclick="window.location.href='/sources/new'">Add a post</button>
+</div>
+</div>
+{{!-- <button onclick="window.location.href='/sources/new'">Add a post</button> --}}
+<div class="sectBtn">
+<a class="button is-dark" onclick="window.location.href='/sources/new'">Add a post</a>
+</div>
+</div>

@@ -47,6 +47,23 @@ hr {
   margin-left: 40px;
 }
 
+.sectBtn {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.gamesHr {
+  border: 1px solid white;
+  max-width: 70%;
+  margin-left: 40px;
+}
+
+.sourceDashUnit {
+  margin-top: 40px;
+}
+
 .loginBg {
   background-image: url("../images/bg/loginbg.png");
   width: 100%;
@@ -56,47 +73,87 @@ hr {
 }
 
 .repoBg {
-  background-image: url(/Users/yaredmyers/Documents/IronHack/lab/ironclub/public/images/bg/pruebabg1.png);
+  background-image: url("../images/bg/pruebabg5.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.sectionsBg {
+  background-image: url("../images/bg/pruebabg4.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.sourceFlex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gamesBg {
+  background-image: url("../images/bg/pruebabg5.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.ocioDashBg {
+  background-image: url("../images/bg/pruebabg1.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.booksBg {
+  background-image: url("../images/bg/pruebabg5.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .ocioSec {
   display: flex;
+  align-items: center;
   justify-content: space-around;
-  background-image: url("../images/bg/newpostbg2.png");
 }
 
 .gamesSec {
-  max-width: 40%;
+  max-width: 21%;
+  margin-left: 590px;
+  height: fit-content;
 }
 
 .forumSec {
-  max-width: 40%;
-  margin-top: 50px;
+  max-width: 25%;
 }
 
 /*# sourceMappingURL=style.css.map */
 
-
-
-#meetups-panel{
+#meetups-panel {
   width: 20%;
   height: 100%;
   position: absolute;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   z-index: 1;
-  background-color:white;
+  background-color: white;
 }
 
-
-.indexMap{
-  height:100vh;
+.indexMap {
+  height: 100vh;
 }
 
-#menu-container{
-  display:block;
+#menu-container {
+  display: block;
 }
 
-#add-container{
-  display:none;
+#add-container {
+  display: none;
 }

@@ -101,11 +101,11 @@ let comments = [
 let sections = [
   {
     title: "Front End",
-    imgPath: "/images/logoprov.png"
+    imgPath: "/images/parents/ber1.jpg"
   },
   {
     title: "Back End",
-    imgPath: "/images/logoprov.png"
+    imgPath: "/images/parents/ber2.jpg"
   },
 ];
 
