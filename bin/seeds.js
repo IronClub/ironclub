@@ -60,21 +60,24 @@ let posts = [
   {
     title: "Curso inicio express",
     content: "Este curso es una iniciación a Express.js para todos aquellos que quieran empezar a trabajar con esta herramienta, podeis acceder a el en el siguiente link. www.codeacademy.com",
+    picPath: "/images/subsections/exban2.png",
     creatorId: 0,
     subsectionId: 4,
     section: "Express"
   },
   {
     title: "Atajos de teclado para JS",
-    content: "Esta librería independiente te permite añadir eventos de teclado, ya sean combinaciones o una única tecla. Te permite seleccionar si el evento se realiza al presionar o al soltar la tecla, descárgala aquí https://blog.aulaformativa.com/libreria-javascript-plugin-atajos-teclado/",
-    creatorId: 1,
+    content: "Esta librería independiente te permite añadir eventos de teclado, ya sean combinaciones o una única tecla. Te permite seleccionar si el evento se realiza al presionar o al soltar la tecla, descárgala aquí https://blog.aulaformativa.com/libreria-javascript-plugin-atajos-teclado",
+    picPath: "/images/subsections/jspost.jpg",
+    creatorId: 3,
     subsectionId: 0,
     section: "JavaScript"
   },
   {
     title: "Setting up MongoDB Compass",
     content: "Sabemos que hay mucha gente con problemas a la hora de instalar MongoDB Compass por lo que traemos esta guía que será de bastante ayuda para todos, podeis verla aquí https://coursework.vschool.io/setting-up-mongodb-compass/",
-    creatorId: 3,
+    picPath: "/images/subsections/mongoban.png",
+    creatorId: 0,
     subsectionId: 5,
     section: "MongoDB"
   },
@@ -140,11 +143,11 @@ let subsections = [
     imgPath: "/images/subsections/mongo.jpg",
     sectionId: 1,
   },
-  {
-    title: "Middlewares",
-    imgPath: "/images/subsections/middle.png",
-    sectionId: 1,
-  },
+  // {
+  //   title: "Middlewares",
+  //   imgPath: "/images/subsections/middle.png",
+  //   sectionId: 1,
+  // },
 ];
 let meetups = [
   { name: "aCharla1", description: "Pues una charla", location: { type: "Point", coordinates: [40.4189903, -3.7059249] },type:"Charla" },

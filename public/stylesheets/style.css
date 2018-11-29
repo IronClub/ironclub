@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0; }
 
@@ -78,6 +79,11 @@ hr {
   max-width: 70%;
   margin-left: 40px; }
 
+.postHr {
+  border: 1px solid white;
+  max-width: 88%;
+  margin-left: 40px; }
+
 .sourceDashUnit {
   margin-top: 40px; }
 
@@ -147,6 +153,52 @@ hr {
   display: flex;
   justify-content: center;
   align-items: center; }
+
+.postPrevCont {
+  max-width: 50%;
+  border: 1px solid black;
+  background-color: rosybrown;
+  text-align: center;
+  margin-top: 30px; }
+
+.btnBackFlex {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px; }
+
+.authorPrev {
+  font-size: 16px;
+  font-style: italic; }
+
+.authorFull {
+  font-size: 16px;
+  font-style: italic;
+  margin-bottom: 10px; }
+
+.contentPostFull {
+  color: white;
+  margin-top: 30px;
+  margin-bottom: 30px; }
+
+.h1PostPrev {
+  font-size: 45px;
+  color: white;
+  font-weight: lighter;
+  margin: 0; }
+
+.h1PostFull {
+  font-size: 45px;
+  color: white;
+  font-weight: lighter;
+  margin: 0;
+  margin-bottom: 30px; }
+
+.btnPostPrev {
+  margin-bottom: 25px; }
+
+.postPrevFlex {
+  display: flex;
+  justify-content: center; }
 
 .gamesBg {
   background-image: url("../images/bg/pruebabg5.png");

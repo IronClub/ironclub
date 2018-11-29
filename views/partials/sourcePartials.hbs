@@ -1,14 +1,18 @@
 <div class="prevPostBg">
-  <div>
+
+
+  <div class="postPrevFlex">
+  <div class="postPrevCont">
     {{#each posts}}
-    <h1 class="h1Class">{{this.title}}</h1>
-    <p>{{this.creatorId.username}}</p>
-    <img src={{this.picPath}}> {{!--
-    <p>{{this.content}}</p> --}}
-    <p>
-      <a href="/sources/post/{{this.id}}">View more</a>
-    </p>
+    <img class="postImgSquare" src={{this.picPath}}> 
+  <hr>
+    <h1 class="h1PostPrev">{{this.title}}</h1>
+    <hr>
+    <p class="authorPrev">Author: {{this.creatorId.username}}</p>
+    <hr>
+      <a class="button is-dark btnPostPrev" href="/sources/post/{{this.id}}">View more</a>
     {{/each}}
+  </div>
   </div>
 
 

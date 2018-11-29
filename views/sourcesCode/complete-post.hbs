@@ -1,9 +1,21 @@
 <div class="completePostBg">
-<div>
-<h1 class="h1Class">{{post.title}}</h1>
-<p>{{post.creatorId.username}}</p>
+
+
+
+<div class="postPrevFlex">
+  <div class="postPrevCont">
 <img src={{post.picPath}}>
-<p>{{post.content}}</p>
-<p><a href="/sources">Go back</a></p>
+<h1 class="h1PostFull">{{post.title}}</h1>
+<hr class="postHr">
+<pc class="authorFull">Author: {{post.creatorId.username}}</pc>
+<p class="contentPostFull">{{post.content}}</p>
 </div>
+</div>
+<div class="btnBackFlex">
+<a class="button is-dark btnPostPrev" href="/sources">Go back</a>
+</div>
+
+
+
+
 </div>
