@@ -62,4 +62,22 @@ hr {
 
 /*# sourceMappingURL=style.css.map */
 
+#meetups-panel {
+  width: 20%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: white; }
+
+.indexMap {
+  height: 100vh; }
+
+#menu-container {
+  display: block; }
+
+#add-container {
+  display: none; }
+
 /*# sourceMappingURL=style.css.map */

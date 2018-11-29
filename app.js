@@ -48,7 +48,7 @@ app.use(require('node-sass-middleware')({
   sourceMap: true,
   // MongoStore
 }));
-      
+hbs.registerPartials(__dirname+'/views/partials');      
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -69,8 +69,9 @@ hbs.registerHelper('ifUndefined', (value, options) => {
 
 // default value for title local
 app.use((req, res, next) => {
-  app.locals.title = 'Pepe';
+  app.locals.title = 'IronClub';
   app.locals.user = req.user;
+  app.locals.googleAPI = process.env.MAPS_API;
   next();
 })
 

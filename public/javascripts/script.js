@@ -1,5 +1,15 @@
+
+
 document.addEventListener('DOMContentLoaded', () => {
 
-  console.log('IronGenerator JS imported successfully!');
+
+  // mapEngine.addMarkers(window.meetups);
+  mapEngine.loadData(window.meetups);
+  meetupMenu.updateEventList(window.meetups);
+  
+
+  // geolocateMe()
+  //   .then(center => map.setCenter(center))
+  //   .catch(e => console.log(e))
 
 }, false);

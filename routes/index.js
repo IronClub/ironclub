@@ -21,5 +21,11 @@ const reposRoutes = require ("../routes/repos");
 router.use("/repos", reposRoutes);
 
 
+const meetupsRoutes = require('../routes/meetups');
+router.use('/meetups', meetupsRoutes);
+
+const meetupsAPIRoutes = require('../routes/meetupsAPI');
+router.use('/meetupAPI', meetupsAPIRoutes);
+      
 
 module.exports = router;
