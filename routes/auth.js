@@ -25,7 +25,7 @@ router.get("/login", (req, res, next) => {
 router.get("/", ensureLogin.ensureLoggedIn(), (req, res, next) => {
   Post.find({})
     .then(posts => {
-      Comment.find({}).then((comments) => {z
+      Comment.find({}).then((comments) => {
         res.render("index", { "message": req.flash("error"), posts, comments, user: req.user });
       }
       )})
