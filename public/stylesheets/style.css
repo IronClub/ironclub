@@ -51,7 +51,20 @@ hr {
 
 .repoBg {
   background-image: url(/Users/yaredmyers/Documents/IronHack/lab/ironclub/public/images/bg/pruebabg1.png);
-  
+}
+
+.ocioSec {
+  display: flex;
+  justify-content: space-around;
+}
+
+.gamesSec {
+  max-width: 40%;
+}
+
+.forumSec {
+  max-width: 40%;
+  margin-top: 50px;
 }
 
 /*# sourceMappingURL=style.css.map */
