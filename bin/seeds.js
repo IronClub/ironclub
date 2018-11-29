@@ -59,14 +59,14 @@ let users = [
 let posts = [
   {
     title: "Curso inicio express",
-    content: "Este curso es una iniciación a Express.js para todos aquellos que quieran empezar a trabajar con esta herramienta. www.codeacademy.com",
+    content: "Este curso es una iniciación a Express.js para todos aquellos que quieran empezar a trabajar con esta herramienta, podeis acceder a el en el siguiente link. www.codeacademy.com",
     creatorId: 0,
     subsectionId: 4,
     section: "Express"
   },
   {
-    title: "Atajos para el DOM",
-    content: "ipsum lorem",
+    title: "Atajos de teclado para JS",
+    content: "Esta librería independiente te permite añadir eventos de teclado, ya sean combinaciones o una única tecla. Te permite seleccionar si el evento se realiza al presionar o al soltar la tecla, descárgala aquí https://blog.aulaformativa.com/libreria-javascript-plugin-atajos-teclado/",
     creatorId: 1,
     subsectionId: 0,
     section: "JavaScript"
@@ -117,32 +117,32 @@ let subsections = [
   },
   {
     title: "CSS",
-    imgPath: "/images/admin1.png",
+    imgPath: "/images/subsections/css3.png",
     sectionId: 0,
   },
   {
     title: "HTML5",
-    imgPath: "/images/subsections/html5.png",
+    imgPath: "/images/subsections/html5alt.png",
     sectionId: 0,
   },
   {
     title: "Node",
-    imgPath: "/images/admin1.png",
+    imgPath: "/images/subsections/nodejsalt.jpg",
     sectionId: 1,
   },
   {
     title: "Express",
-    imgPath: "/images/admin1.png",
+    imgPath: "/images/subsections/express.png",
     sectionId: 1,
   },
   {
     title: "MongoDB",
-    imgPath: "/images/admin1.png",
+    imgPath: "/images/subsections/mongo.jpg",
     sectionId: 1,
   },
   {
     title: "Middlewares",
-    imgPath: "/images/admin1.png",
+    imgPath: "/images/subsections/middle.png",
     sectionId: 1,
   },
 ];
@@ -165,12 +165,20 @@ User.deleteMany()
   .then(usersCreated => {
     return Section.deleteMany()
     .then(()=> {
-      return Section.create(sections).catch(err => console.log(err))
-    }).then(sections => {
+      const Front = new Section(sections[0])
+      return Front.save()
+      // return Section.create(sections)
+    })
+    .then(FrontSave =>{
+      const Back = new Section(sections[1])
+      return Back.save()
+      .then(BackSave => [FrontSave, BackSave])
+    })
+    .then(sections => {
 
       subsections.forEach((e) => e.sectionId = sections[e.sectionId]._id);
       console.log(`${sections.length} subsections created with the following id:`);
-      console.log(sections.map(u => u._id));
+      console.log(sections.map(u => u.title));
       
       return Subsection.deleteMany()
       .then(()=> {

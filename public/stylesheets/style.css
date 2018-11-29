@@ -1,3 +1,7 @@
+html, body {
+  margin: 0;
+  padding: 0; }
+
 body {
   padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
@@ -11,9 +15,31 @@ hr {
   background-color: black;
   border: none; }
 
+.navImg {
+  margin: 10px; }
+
+.navLogo {
+  margin-right: 10px; }
+
 .booksSpace {
   display: flex;
   justify-content: space-around; }
+
+.subsecSpace {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.subLinks {
+  width: 300px;
+  margin-right: 10px; }
+
+.subsecsCol {
+  text-align: center;
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 130px; }
 
 .booksCol {
   max-width: 20%;
@@ -59,11 +85,32 @@ hr {
   background-size: cover;
   background-repeat: no-repeat; }
 
+.signupBg {
+  background-image: url("../images/bg/signupbg.png");
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat; }
+
 .repoBg {
   background-image: url("../images/bg/pruebabg5.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat; }
+
+.newPostBg {
+  background-image: url("../images/bg/newpostbg1.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh; }
+
+.subsecBg {
+  background-image: url("../images/bg/pruebabg5.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh; }
 
 .sectionsBg {
   background-image: url("../images/bg/pruebabg4.png");
