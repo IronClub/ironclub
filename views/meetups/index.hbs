@@ -1,22 +1,13 @@
 <script>
-  window.meetups = {{{meetups}}}
+  window.meetups={{{meetups}}}
 </script>
-
 
 <h1>Meetups</h1>
 
-
-{{!-- <label>Address</label>
-  <input type="hidden" name="latitude" placeholder="latitude" >
-  <input type="hidden" name="longitude" placeholder="longitude">
-  <div style="color:green" class="locationStatus"></div>
-  <input type="submit" name="">
-  
-</form> --}}
-
 <nav class="panel" id="meetups-panel">
+  <div id="menu-container">
   <p class="panel-heading">
-    repositories
+    Events
   </p>
   <div class="panel-block">
     <p class="control has-icons-left">
@@ -27,22 +18,98 @@
     </p>
   </div>
   <p class="panel-tabs">
-    <a class="is-active filter-options">all</a>
-    <a class="filter-options">Charla</a>
-    <a class="filter-options">Quedada</a>
+    {{!-- TODO: añadir según los tipos que haya en Event --}}
+    <a class="is-active filter-options" name="All">All</a>
+    <a class="filter-options" name="Charla">Charla</a>
+    <a class="filter-options" name="Quedada">Quedada</a>
   </p>
-  {{#each events}}
-  {{> eventListPartial this}}
-  {{/each}}
+  <div id="events-container">
+  </div>
   <label class="panel-block">
-    <input type="checkbox">
-    remember me
+    Sort by: <div class="select">
+  <select id="select-sort">
+    <option selected="selected" name="name">Name</option>
+    <option name="type">Type</option>
+  </select>
+  </div>
   </label>
   <div class="panel-block">
-    <button id="btn-meetup-search" class="button is-link is-outlined is-fullwidth">
-      Apply
+    <button id="btn-add-meetup" class="button is-link is-outlined is-fullwidth">
+      Add new event
     </button>
   </div>
+  
+
+</div>
+
+
+
+  <div id="add-container">
+  <p class="panel-heading">
+    Events
+  </p>
+
+  <p class="panel-heading">
+    Add new event
+  </p>
+  <p class="panel-block">
+     <label for"add-name">
+       Name:
+    </label>
+  </p>
+  
+  
+  <div class="panel-block">
+    <p class="control has-icons-left">
+      <input id="add-name" class="input is-small" type="text" placeholder="Name of the event">
+      <span class="icon is-small is-left">
+        <i class="fas fa-search" aria-hidden="true"></i>
+      </span>
+    </p>
+  </div>
+  <p class="panel-block">
+     <label for"add-description">
+       Description:
+    </label>
+  </p>
+  
+  <div class="panel-block">
+    <p class="control has-icons-left">
+      <input type="text" id="add-description" class="input is-small" placeholder="Name of the event">
+      <span class="icon is-small is-left">
+        <i class="fas fa-search" aria-hidden="true"></i>
+      </span>
+    </p>
+  </div>
+
+
+
+
+  
+  <label class="panel-block">
+    Type: <div class="select">
+  <select id="add-type">
+    <option selected="selected" name="Charla">Charla</option>
+    <option name="Quedada">Quedada</option>
+  </select>
+  </div>
+  </label>
+  <div class="panel-block">
+    <button id="btn-create-meetup" class="button is-link is-outlined is-fullwidth">
+      Create event
+    </button>
+    </div>
+    <div class="panel-block">
+    <button id="btn-cancel-add" class="button is-danger is-outlined is-fullwidth">
+      Cancel
+    </button>
+  </div>
+  
+  </div>
+
+
+
+
 </nav>
 <div id="map" class="indexMap"></div>
 
@@ -51,8 +118,8 @@
 
 <script src={{this.googleAPI}}></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="/javascripts/mapEngine.js"></script>
+<script src="/javascripts/meetups/mapEngine.js"></script>
+<script type="text/javascript" src="/javascripts/meetups/meetupMenu.js"></script>
 
-<script src="/javascripts/home.js"></script>
-<script type="text/javascript" src="/javascripts/meetupAPIHandler.js"></script>
-<script src="/javascripts/meetupListeners.js"></script>
+<script type="text/javascript" src="/javascripts/meetups/meetupAPIHandler.js"></script>
+<script src="/javascripts/meetups/meetupListeners.js"></script>

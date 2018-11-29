@@ -15,6 +15,12 @@ a {
   background-color: white; }
 
 .indexMap {
-  height: 90vh; }
+  height: 100vh; }
+
+#menu-container {
+  display: block; }
+
+#add-container {
+  display: none; }
 
 /*# sourceMappingURL=style.css.map */

@@ -5,7 +5,7 @@ const eventSchema = new Schema({
   name:String,
   description: String,
   location: { type: { type: String }, coordinates: [Number] },
-  type: {type:String}
+  type: {type:String, enum:["Quedada","Charla"]}
 },{
   timestamps:true
 })

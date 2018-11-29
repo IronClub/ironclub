@@ -11,7 +11,7 @@ const router  = express.Router();
 const meetupsRoutes = require('../routes/meetups');
 router.use('/meetups', meetupsRoutes);
 
-const meetupsAPIRoutes = require('../public/javascripts/meetupsAPI');
+const meetupsAPIRoutes = require('../routes/meetupsAPI');
 router.use('/meetupAPI', meetupsAPIRoutes);
       
 
