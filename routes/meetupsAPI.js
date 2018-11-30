@@ -33,7 +33,7 @@ meetupsAPIRouter.post("/", ensureLogin.ensureLoggedIn(), (req, res, next) => {
   let creatorId=req.user.id;
   Event.add(name, description, latitude, longitude,type,creatorId)
     .then((data) => {
-      res.json(data)
+      res.json(data);
     })
     .catch(err => console.log(err));
 });

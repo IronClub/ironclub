@@ -117,4 +117,14 @@ sourcesRoutes.get(
   }
 );
 
+sourcesRoutes.get("/post/delete/:id", ensureLogin.ensureLoggedIn(), (req, res) => {
+  Post.findByIdAndDelete(req.params.id)
+    .then(() => {
+      console.log("entra dentro");
+      res.redirect('/');
+    })  
+    .catch(err => console.log(err));
+}
+);
+
 module.exports = sourcesRoutes;

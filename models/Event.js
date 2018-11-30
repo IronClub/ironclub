@@ -16,14 +16,16 @@ eventSchema.index({ location: '2dsphere' });
 const Event = mongoose.model('Event',eventSchema);
 
 Event.add = function(name, description, lat, lng,type,creatorId){
+  console.log(arguments);
   return Event.create({
-    name, description,
+    name:name,
+    description:description,
     location:{
-      type:"Point ",
+      type:"Point",
       coordinates:[lat,lng]
     },
-    type,
-    creatorId
+    type:type,
+    creatorId:creatorId
   })
   .catch(err=>console.log(err));
 }

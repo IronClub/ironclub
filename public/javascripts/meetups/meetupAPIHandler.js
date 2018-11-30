@@ -27,8 +27,9 @@ class meetupAPIHandler {
       .catch(err => console.log(err));
   }
 
-  addEvent(name, description, latitude, longitude) {
-    return axios.post(this.BASE_URL + "/", { name, description, latitude, longitude })
+  addEvent(name, description, latitude, longitude,type) { 
+    console.log("meetupAPIHANDLER",name,description,latitude,longitude,type);
+    return axios.post(this.BASE_URL + "/", { name, description, latitude, longitude,type })
       .then(data => data.data)
       .catch(err => console.log(err));
   }

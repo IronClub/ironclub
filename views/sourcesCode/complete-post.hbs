@@ -14,6 +14,11 @@
 <div class="btnBackFlex">
 <a class="button is-dark btnPostPrev" href="/sources">Go back</a>
 </div>
+{{#ifEquals post.creatorId._id user.id}}
+<div class="btnBackFlex">
+<a class="button is-danger btnPostPrev" href="/sources/post/delete/{{post.id}}">Borrar</a>
+</div>
+{{/ifEquals}}
 
 
 
