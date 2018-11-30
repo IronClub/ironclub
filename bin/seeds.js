@@ -59,24 +59,35 @@ let users = [
 let posts = [
   {
     title: "Curso inicio express",
-    content: "Este curso es una iniciación a Express.js para todos aquellos que quieran empezar a trabajar con esta herramienta. www.codeacademy.com",
+    content: "Este curso es una iniciación a Express.js para todos aquellos que quieran empezar a trabajar con esta herramienta, podeis acceder a el en el siguiente link. www.codeacademy.com",
+    picPath: "/images/subsections/exban2.png",
     creatorId: 0,
     subsectionId: 4,
     section: "Express"
   },
   {
-    title: "Atajos para el DOM",
-    content: "ipsum lorem",
-    creatorId: 1,
+    title: "Atajos de teclado para JS",
+    content: "Esta librería independiente te permite añadir eventos de teclado, ya sean combinaciones o una única tecla. Te permite seleccionar si el evento se realiza al presionar o al soltar la tecla, descárgala aquí https://blog.aulaformativa.com/libreria-javascript-plugin-atajos-teclado",
+    picPath: "/images/subsections/jspost.jpg",
+    creatorId: 3,
     subsectionId: 0,
     section: "JavaScript"
   },
   {
-    title: "Compass Themes",
-    content: "ipsum lorem",
-    creatorId: 3,
+    title: "Setting up MongoDB Compass",
+    content: "Sabemos que hay mucha gente con problemas a la hora de instalar MongoDB Compass por lo que traemos esta guía que será de bastante ayuda para todos, podeis verla aquí https://coursework.vschool.io/setting-up-mongodb-compass/",
+    picPath: "/images/subsections/mongoban.png",
+    creatorId: 0,
     subsectionId: 5,
     section: "MongoDB"
+  },
+  {
+    title: "How to make robots powered by JavaScript",
+    content: "Install Node.js and get the Johnny-Five library. If you're controlling an arduino, you'll need to have it programmed with StandardFirmata, which is pretty easy to setup. If you're using a single board computer (like the Tessel 2, Raspberry Pi or Intel Edison) it will have all your IO built in and you'll need to grab the IO-Plugin for your platform. Once that is complete, you can now start hacking hardware like a champion! NodeBots makes the process of programming hardware circuitry very similar to how one would program a modern web page. Seriously, it is that easy! http://nodebots.io/",
+    picPath: "/images/subsections/jspost.jpg",
+    creatorId: 3,
+    subsectionId: 0,
+    section: "JavaScript"
   },
 ];
 
@@ -101,11 +112,11 @@ let comments = [
 let sections = [
   {
     title: "Front End",
-    imgPath: "/images/logoprov.png"
+    imgPath: "/images/parents/ber1.jpg"
   },
   {
     title: "Back End",
-    imgPath: "/images/logoprov.png"
+    imgPath: "/images/parents/ber2.jpg"
   },
 ];
 
@@ -117,32 +128,27 @@ let subsections = [
   },
   {
     title: "CSS",
-    imgPath: "/images/admin1.png",
+    imgPath: "/images/subsections/css3.png",
     sectionId: 0,
   },
   {
     title: "HTML5",
-    imgPath: "/images/subsections/html5.png",
+    imgPath: "/images/subsections/html5alt.png",
     sectionId: 0,
   },
   {
     title: "Node",
-    imgPath: "/images/admin1.png",
+    imgPath: "/images/subsections/nodejsalt.jpg",
     sectionId: 1,
   },
   {
     title: "Express",
-    imgPath: "/images/admin1.png",
+    imgPath: "/images/subsections/express.png",
     sectionId: 1,
   },
   {
     title: "MongoDB",
-    imgPath: "/images/admin1.png",
-    sectionId: 1,
-  },
-  {
-    title: "Middlewares",
-    imgPath: "/images/admin1.png",
+    imgPath: "/images/subsections/mongo.jpg",
     sectionId: 1,
   },
 ];
@@ -166,12 +172,20 @@ User.deleteMany()
 
     return Section.deleteMany()
     .then(()=> {
-      return Section.create(sections).catch(err => console.log(err))
-    }).then(sections => {
+      const Front = new Section(sections[0])
+      return Front.save()
+      // return Section.create(sections)
+    })
+    .then(FrontSave =>{
+      const Back = new Section(sections[1])
+      return Back.save()
+      .then(BackSave => [FrontSave, BackSave])
+    })
+    .then(sections => {
 
       subsections.forEach((e) => e.sectionId = sections[e.sectionId]._id);
       console.log(`${sections.length} subsections created with the following id:`);
-      console.log(sections.map(u => u._id));
+      console.log(sections.map(u => u.title));
       
       return Subsection.deleteMany()
       .then(()=> {

@@ -7,7 +7,7 @@ const ensureLogin = require("connect-ensure-login");
 const uploadCloud = require('../config/cloudinary.js');
 
 booksRoutes.get("/", ensureLogin.ensureLoggedIn(), (req, res, next) => {
-  res.render("books/booksSec");
+  res.render("books/booksSec", {user: req.user});
 })
 
 module.exports = booksRoutes;

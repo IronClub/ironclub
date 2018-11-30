@@ -10,15 +10,15 @@ const uploadCloud = require('../config/cloudinary.js');
 const OcioPost = require('../models/OcioPost')
 
 ocioRoutes.get("/", ensureLogin.ensureLoggedIn(), (req, res, next) => {
-    res.render("tiempoLibre/ocio-dashboard");
+    res.render("tiempoLibre/ocio-dashboard", {user: req.user});
 })
 
 ocioRoutes.get("/videogames", ensureLogin.ensureLoggedIn(), (req, res, next) => {
-  res.render("tiempoLibre/games");
+  res.render("tiempoLibre/games", {user: req.user});
 })
 
 ocioRoutes.get("/forum", ensureLogin.ensureLoggedIn(), (req, res, next) => {
-  res.render("tiempoLibre/forum");
+  res.render("tiempoLibre/forum", {user: req.user});
 })
 
 

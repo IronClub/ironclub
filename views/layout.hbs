@@ -10,6 +10,8 @@
 
   {{!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> --}}
   {{!-- <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/> --}}
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png"/>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 
@@ -22,10 +24,10 @@
 </head>
 <body>
 
-  <nav class="navbar is-info" role="navigation" aria-label="main navigation">
+  <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="/">
-      <img src="/images/navlog2.jpg" width="28" height="28">
+      <img class="navLogo" src="/images/navlog2.jpg" width="28" height="28">
       IRON CLUB
     </a>
     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -60,14 +62,10 @@
           <hr class="navbar-divider">
           <a href="/sources/search/Back%20End" class="navbar-item">
             Backend
-          </a>
-          <hr class="navbar-divider">
-          <a href="/sources/subsections/search/Middlewares" class="navbar-item">
-            Middlewares
-          </a>        
+          </a>      
         </div>
       </div>
-      <a class="navbar-item">
+      <a href="/meetups" class="navbar-item">
         Meetups
       </a>
       <a class="navbar-item" href="/books">
@@ -85,19 +83,19 @@
         <a class="navbar-link">
           <img class="navImg" src={{user.imgPath}}> {{user.username}}
         </a>
-        <div class="navbar-dropdown">
+        {{!-- <div class="navbar-dropdown">
           <a class="navbar-item">
             Edit profile
           </a>
           <hr class="navbar-divider">
           <a class="navbar-item">
             otra cosa
-          </a>       
+          </a>        --}}
         </div>
       </div>
       <div class="navbar-item">
         <div class="buttons">
-          <a href="/logout" class="button is-dark">
+          <a href="/logout" class="button is-info">
             Log out
           </a>
         </div>
@@ -109,7 +107,6 @@
   {{{body}}}
 
   
-
   <script src="/javascripts/script.js"></script>
 </body>
 </html>

@@ -1,6 +1,11 @@
-<h1>Y ESTO ES MENTIRA TAMBIEN</h1>
-
-{{#each subsections}}
-<h1>{{this.title}}</h1>
-<a href="/sources/subsections/{{this.id}}"><img src={{this.imgPath}} alt=""></a>
-{{/each}}
+<div class="subsecBg">
+  <div class="subsecSpace">
+    <div class="subsecsCol">
+      {{#each subsections}}
+      <a class="subLinks" href="/sources/subsections/{{this.id}}">
+        <img src={{this.imgPath}} alt="">
+      </a>
+      {{/each}}
+    </div>
+  </div>
+</div>

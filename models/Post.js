@@ -6,7 +6,7 @@ const PostSchema = Schema({
   creatorId: { type: Schema.Types.ObjectId, ref: "User" },
   subsectionId: { type: Schema.Types.ObjectId, ref: "Subsection"},
   content: String,
-  picPath: {type: String, default:"/Users/yaredmyers/Documents/IronHack/lab/ironclub/public/images/admin1.png"},
+  picPath: {type: String, default:"/images/subsections/jspost.jpg"},
   section: { type: String, enum: ['JavaScript', 'CSS', 'HTML', 'Node', 'Middlewares', 'Express', 'MongoDB'] }
 }, {
     timestamps: {

@@ -1,22 +1,23 @@
-<div class="container">
-  <div class="row">
+<div class="newPostBg">
+{{!-- <div class="container"> --}}
+  <div class="row newPostCont">
     {{ message }}
-    <div class="col-sm-6 centered-form">
+    <div class="col-sm-6 centered-form"> 
       <form action="/sources/new" method="post" enctype="multipart/form-data">
-      <div class="form-group">
-          <label for="title">title</label>
-          <input type="text" name="title" class="form-control">
+       <div class="form-group marginTitle"> 
+          <label for="title"></label>
+          <input type="text" name="title" class="form-control" placeholder="Title">
         </div>
-        <div class="form-group">
-          <label for="content">content</label>
-          <textarea rows="4" cols="50" name="content" class="form-control" style="width: 150px"></textarea>
+        <div class="form-group marginTitle">
+          <label for="content"></label>
+          <textarea rows="4" cols="50" name="content" class="form-control" style="width: 150px" placeholder="Content"></textarea>
         </div>
-        <div class="form-group">
-          <label for="image">picPath</label>
-          <input type="file" name="img" class="form-control">
+        <div class="form-group marginTitle">
+          <label for="image"></label>
+          <input type="file" name="img" class="form-control"  placeholder="Archivo">
         </div>
-        <div>
-          <select name="section">
+        <div> 
+          <select name="section" class="marginTitle">
             <option selected>Choose a section</option>
             <optgroup label="Front End">
             <option>JavaScript</option>
@@ -30,9 +31,12 @@
             <option>Middlewares</option>
             </optgroup>
           </select>
-        </div>
-        <button type="submit" value="Save">Create post</button>
+        </div> 
+        <button type="submit" value="Save" class="button is-link btnPostPrev btnNewPost marginTitle">Create post</button>
       </form>
     </div>
-  </div>
+   </div> 
+ </div> 
 </div>
+
+
