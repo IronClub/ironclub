@@ -1,3 +1,8 @@
+<img src="https://github.com/IronClub/ironclub/blob/master/public/images/logofinal.png?raw=true" width="450" title="Logo"> 
+
+## Bienvenido a IronClub
+#### Bienvenidos a IronClub. Un pequeño espacio para que todos los IronHackers del mundo puedan compartir no solo recursos valiosos para nuestro aprendizaje, si no también un lugar donde relajarse, informarte sobre las últimas quedadas y eventos relacionados con la comunidad, incluso compartir libros o repositorios que añadan valor y sean de interés. ¡Y no olvides pasar por la sección de ocio donde tienes nuestro foro y sección de videojuegos hechos por IronHackers!
+
 ### Características
 * Uso de tecnologías Front-Back
 * Sonidos añadidos
@@ -34,19 +39,22 @@
 <img src="https://vignette.wikia.nocookie.net/crayonshinchan/images/0/00/Action_mask_shin.gif/revision/latest?cb=20161220083135" width="300">
 
 ```
-updateEventList: function (events, redirectFunction) {
-   this.domElements.eventsList.innerHTML = "";
-   events.forEach((event, i) => {
-     let node = document.createElement('a');
-     node.classList.add("panel-block");
-     node.innerHTML = `<span class="panel-icon">
-     <i class="fas fa-book" aria-hidden="true">${i + 1}</i>
-     </span>
-   ${event.name}`
-     node.onclick = function () { redirectFunction(event) };
-     this.domElements.eventsList.appendChild(node);
-   })
- },
+loadShowMenu: function (event, deleteFunction, youAreYouFunction) {
+    [...]
+	youAreYouFunction(event.creatorId)
+      .then((iamI) => {
+        if (iamI) {
+          meetupMenu.domElements.creatorShowSection.style.display = "block";
+        }
+        else {
+          meetupMenu.domElements.creatorShowSection.style.display = "none";
+        }
+
+      })
+    meetupMenu.domElements.deleteButton.onclick = () => {
+      deleteFunction(event._id);
+      meetupMenu.loadMenu();
+    }
 ```
 ## 3. Si tuviese que volver atrás... ¿Que cambiar? ԅ(≖‿≖ԅ)
 #### - Mejor planteamiento de necesidades (¿Qué necesito?)
@@ -87,22 +95,22 @@ User.deleteMany()
  
  #### Juan
 ```
-User.deleteMany()
-  .then(() => {
-    return User.create(users)
-  })
-  .then(usersCreated => {
-    return Section.deleteMany()
-    .then(()=> {
-      const Front = new Section(sections[0])
-      return Front.save()
-      // return Section.create(sections)
-    })
-    .then(FrontSave =>{
-      const Back = new Section(sections[1])
-      return Back.save()
-      .then(BackSave => [FrontSave, BackSave])
-    })
+loadShowMenu: function (event, deleteFunction, youAreYouFunction) {
+    [...]
+	youAreYouFunction(event.creatorId)
+      .then((iamI) => {
+        if (iamI) {
+          meetupMenu.domElements.creatorShowSection.style.display = "block";
+        }
+        else {
+          meetupMenu.domElements.creatorShowSection.style.display = "none";
+        }
+
+      })
+    meetupMenu.domElements.deleteButton.onclick = () => {
+      deleteFunction(event._id);
+      meetupMenu.loadMenu();
+    }
  ```
  ## Muchas Gracias
  <img src="https://i.pinimg.com/originals/73/bd/df/73bddf0c143cec98915da19b3c004bb4.gif">
