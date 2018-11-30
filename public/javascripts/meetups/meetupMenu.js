@@ -1,6 +1,8 @@
+
+
 const meetupMenu = {
 
-  //TODO : hacer objeto para crear
+  //TODO : hacer objeto para crear {addButton: 'btn-add-meetup',...}
   domElements: {
     addButton: document.getElementById('btn-add-meetup'),
     searchByNameInput: document.getElementById('meetup-name'),
@@ -19,8 +21,10 @@ const meetupMenu = {
     addLongitude: document.getElementById("add-longitude"),
     addDescriptionInput: document.getElementById("add-description"),
     showGoBackButton: document.getElementById("btn-show-goback"),
-    showName:document.getElementById("showEvent-name"),
-    showDescription:document.getElementById("showEvent-description"),
+    showName: document.getElementById("showEvent-name"),
+    showDescription: document.getElementById("showEvent-description"),
+    deleteButton: document.getElementById("btn-show-delete"),
+    creatorShowSection: document.getElementById("creator-div"),
   },
 
 
@@ -45,7 +49,7 @@ const meetupMenu = {
     if (this.domElements.addDescriptionInput.value !== '') {
       formObject.description = this.domElements.addDescriptionInput.value;
     }
-    
+
     if (this.domElements.addLatitude.value !== '' && this.domElements.addLongitude.value !== '') {
       formObject.latitude = this.domElements.addLatitude.value;
       formObject.longitude = this.domElements.addLongitude.value;
@@ -55,18 +59,11 @@ const meetupMenu = {
     return formObject;
   },
 
-  clearAddFormObject: function(){
-    this.domElements.addNameInput.value="";
-    this.domElements.addDescriptionInput.value="";
-    this.domElements.addTypeSelect.selectedIndex=0;
+  clearAddFormObject: function () {
+    this.domElements.addNameInput.value = "";
+    this.domElements.addDescriptionInput.value = "";
+    this.domElements.addTypeSelect.selectedIndex = 0;
   },
-
-
-  // name:String,
-  // description: String,
-  // location: { type: { type: String }, coordinates: [Number] },
-  // type: {type:String, enum:["Quedada","Charla"]}
-
 
   getActiveFilter: function () {
     return (Array.from(this.domElements.filterOptions).filter((e) => {
@@ -82,7 +79,7 @@ const meetupMenu = {
     }
   },
 
-  updateEventList: function (events,redirectFunction) {
+  updateEventList: function (events, redirectFunction) {
     this.domElements.eventsList.innerHTML = "";
     events.forEach((event, i) => {
       let node = document.createElement('a');
@@ -91,31 +88,50 @@ const meetupMenu = {
       <i class="fas fa-book" aria-hidden="true">${i + 1}</i>
       </span>
     ${event.name}`
-    //TODO: asignar onclick al crear
-      node.onclick=function (){redirectFunction(event)};
+      node.onclick = function () { redirectFunction(event) };
       this.domElements.eventsList.appendChild(node);
     })
+  },
+
+  setOnClickonDeleteButton: function (id, deleteFunction) {
+    this.domElements.deleteButton.onclick = function () {
+      deleteFunction(id);
+    };
   },
 
 
   loadMenu: function () {
     meetupMenu.domElements.addContainer.style.display = 'none';
-    meetupMenu.domElements.showContainer.style.display='none';
-    meetupMenu.domElements.menuContainer.style.display = 'block'; },
-
-  loadAddMenu: function () {
-    meetupMenu.clearAddFormObject();  
-    meetupMenu.domElements.addContainer.style.display = 'block';
-    meetupMenu.domElements.menuContainer.style.display = 'none';
-    meetupMenu.domElements.showContainer.style.display='none';
+    meetupMenu.domElements.showContainer.style.display = 'none';
+    meetupMenu.domElements.menuContainer.style.display = 'block';
   },
 
-  loadShowMenu: function (event) {
-    meetupMenu.domElements.showName.innerText=event.name;
-    meetupMenu.domElements.showDescription.innerText=event.description; 
+  loadAddMenu: function () {
+    meetupMenu.clearAddFormObject();
+    meetupMenu.domElements.addContainer.style.display = 'block';
+    meetupMenu.domElements.menuContainer.style.display = 'none';
+    meetupMenu.domElements.showContainer.style.display = 'none';
+  },
+
+  loadShowMenu: function (event, deleteFunction, youAreYouFunction) {
+    meetupMenu.domElements.showName.innerText = event.name;
+    meetupMenu.domElements.showDescription.innerText = event.description;
     meetupMenu.domElements.showContainer.style.display = 'block';
     meetupMenu.domElements.menuContainer.style.display = 'none';
-    meetupMenu.domElements.addContainer.style.display='none';
+    meetupMenu.domElements.addContainer.style.display = 'none';
+    youAreYouFunction(event.creatorId)
+      .then((iamI) => {
+        if (iamI) {
+          meetupMenu.domElements.creatorShowSection.style.display = "block";
+        }
+        else {
+          meetupMenu.domElements.creatorShowSection.style.display = "none";
+        }
 
+      })
+    meetupMenu.domElements.deleteButton.onclick = () => {
+      deleteFunction(event._id);
+      meetupMenu.loadMenu();
+    }
   }
 }

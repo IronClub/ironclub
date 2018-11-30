@@ -1,34 +1,52 @@
-<h2>Signup</h2>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
+<link rel="stylesheet" href="/stylesheets/style.css" />
 
- <div class="col-sm-6 centered-form">
-      <form action="/signup" method="post" enctype="multipart/form-data">
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input type="text" name="username" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="text" name="email" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" name="password" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="image">Image</label>
-          <input type="file"  name="img" class="form-control">
-        </div>
-  {{#if message }}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
 
-  <br><br>
-
-  <button type="submit">Create account</button>
-
-  <p class="account-message">
-    Do you already have an account?
-    <a href="/login">Login</a>
-  </p>
-</form>
-</div>
+<section class="is-fullheight is-medium is-primary is-bold loginBg" enctype="multipart/form-data">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-half">
+        <article class="card is-rounded is-centered login-card">
+          <div class="card-content">
+            <h1 class="title">
+              <img id="login-logo" src="images/logofinal.png" alt="logo" width="200">
+            </h1>
+            <form action="/signup" method="POST" id="form-container">
+              <p class="control has-icon login-input">
+              <input type="text" name="username" class="input form-control" placeholder="Name">
+              <i class="fa fa-envelope"></i>
+              </p>
+              <p class="control has-icon login-input">
+                <input id="email" class="input" name="email" type="email" placeholder="Email">
+                <i class="fa fa-envelope"></i>
+              </p>
+              <p class="control has-icon login-input">
+                <input id="password" class="input" name="password" type="password" placeholder="Password">
+                <i class="fa fa-lock"></i>
+              </p>
+              <div class="control form-group login-input">
+                <label for="image" class="avatarImg-text">Avatar</label>
+                <input type="file" name="img" class="form-control avatarImg-text">
+              </div>
+              <p class="control">
+                <button type="submit" class="button is-link is-medium is-fullwidth">
+                  <i class="fa fa-user"></i>
+                  Create account
+                </button>
+              </p>
+            </form>
+            <p class="account-message">
+              Do you already have an account?
+              <a href="/login" class="auth-link">Login</a>
+            </p>
+            {{#if message }}
+            <br>
+            <br>
+            <div class="error-message control">{{ message }}</div>
+            {{/if}}
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

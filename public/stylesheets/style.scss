@@ -53,6 +53,8 @@ hr {
   height: 100%;
   background-size: cover;
   background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
 }
 
 .repoBg {
@@ -90,7 +92,8 @@ hr {
 
 
 .indexMap{
-  height:100vh;
+  height:90vh;
+  width:100hw;
 }
 
 #menu-container{
@@ -103,4 +106,35 @@ hr {
 
 #showEvent-container{
   display:none;
+}
+
+.login-input{
+  margin-bottom: 5px;
+}
+.card{
+  border-radius: 8px;
+}
+.card-content .title{
+  display:flex;
+  width:100%; 
+  align-items: center;
+}
+
+.login-card{
+  margin-left:15%;
+}
+
+#login-logo{
+  margin:auto;
+}
+.account-message , .avatarImg-text{
+  color:hsl(0, 0%, 96%);
+}
+
+.card-content{
+  background-color: hsl(0, 0%, 21%);
+}
+
+.auth-link{
+  color:hsl(217, 71%, 53%)
 }

@@ -1,39 +1,44 @@
-  <link rel="stylesheet" href="/stylesheets/style.css" />
-<div class="loginBg">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
+<link rel="stylesheet" href="/stylesheets/style.css" />
 
 
-
-
-<h2>Login</h2>
-
- <div class> 
-<form action="/login" method="POST" id="form-container">
-  <label for="email">Email</label>
-  <input id="email" type="text" name="email" placeholder="Your email">
-
-  <br><br>
-
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
-  <br>
-  {{#if message }}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
-
-  <br><br>
-
-  <button>Login</button>
-
-  <p class="account-message">
-    Don't have an account yet?
-    <a href="/signup">Signup</a>
-  </p>
-</form>
- </div> 
-
- </div>
-
- 
-
-
-
+<section class="is-fullheight is-medium is-primary is-bold loginBg">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-half">
+        <article class="card is-rounded is-centered login-card">
+          <div class="card-content">
+            <h1 class="title">
+              <img id="login-logo" src="images/logofinal.png" alt="logo" width="200">
+            </h1>
+            <form action="/login" method="POST" id="form-container">
+            <p class="control has-icon login-input">
+              <input id="email" class="input" name="email" type="email" placeholder="Email">
+              <i class="fa fa-envelope"></i>
+            </p>
+            <p class="control has-icon login-input">
+              <input id="password" class="input" name="password" type="password" placeholder="Password">
+              <i class="fa fa-lock"></i>
+            </p>
+            <p class="control">
+              <button class="button is-link is-medium is-fullwidth">
+                <i class="fa fa-user"></i>
+                Login
+              </button>
+            </p>
+            </form>
+            <p class="control account-message">
+              Don't have an account yet?
+              <a href="/signup" class="auth-link">Signup</a>
+            </p>
+            {{#if message }}
+            <br>
+            <br>  
+            <div class="error-message control">{{ message }}</div>
+            {{/if}}
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
