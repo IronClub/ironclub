@@ -153,7 +153,7 @@ hr {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh; }
+  height: 130vh; }
 
 .completePostBg {
   background-image: url("../images/bg/pruebabg5.png");
@@ -246,6 +246,27 @@ hr {
   display: flex;
   align-items: center;
   justify-content: space-around; }
+
+.audioCont {
+  display: flex;
+  justify-content: center;
+  opacity: 1; }
+
+.signSit {
+  margin-top: 120px;
+  margin-right: 300px; }
+
+.h1Forum {
+  display: flex;
+  justify-content: center;
+  font-size: 76px; }
+
+.secretImg {
+  display: flex;
+  justify-content: center; }
+
+.audioSecret {
+  height: 200px; }
 
 .gamesSec {
   max-width: 21%;
