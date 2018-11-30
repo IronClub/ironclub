@@ -81,6 +81,14 @@ let posts = [
     subsectionId: 5,
     section: "MongoDB"
   },
+  {
+    title: "How to make robots powered by JavaScript",
+    content: "Install Node.js and get the Johnny-Five library. If you're controlling an arduino, you'll need to have it programmed with StandardFirmata, which is pretty easy to setup. If you're using a single board computer (like the Tessel 2, Raspberry Pi or Intel Edison) it will have all your IO built in and you'll need to grab the IO-Plugin for your platform. Once that is complete, you can now start hacking hardware like a champion! NodeBots makes the process of programming hardware circuitry very similar to how one would program a modern web page. Seriously, it is that easy! http://nodebots.io/",
+    picPath: "/images/subsections/jspost.jpg",
+    creatorId: 3,
+    subsectionId: 0,
+    section: "JavaScript"
+  },
 ];
 
 let comments = [
@@ -143,11 +151,6 @@ let subsections = [
     imgPath: "/images/subsections/mongo.jpg",
     sectionId: 1,
   },
-  // {
-  //   title: "Middlewares",
-  //   imgPath: "/images/subsections/middle.png",
-  //   sectionId: 1,
-  // },
 ];
 let meetups = [
   { name: "aCharla1", description: "Pues una charla", location: { type: "Point", coordinates: [40.4189903, -3.7059249] },type:"Charla" },
